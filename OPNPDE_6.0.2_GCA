@@ -1,0 +1,53 @@
+element * CHECKEDOUT
+# Use this config spec and 
+#external dependencies ...
+element * DBSV2TOOLS_4.2_GCA -nocheckout
+element * OPNPDETOOLS_4.4_GCA -nocheckout
+element * TDGSSTOOLS_4.2_GCA -nocheckout
+element .../columbia_c_svr4/... TDV_2.1_GCA
+element * TDV_4.6_GCA -nocheckout
+element * REDHATLINUX-I386-USRSRC_2.6.7 -nocheckout 
+element * REDHATLINUX-X8664-USRSRC_2.6.7 -nocheckout
+element * SUSELINUX-X8664_9.0-SP1_GCA -nocheckout 
+element * SUSELINUX-I386_9.0-SP1_GCA -nocheckout
+element * REDHATLINUX-I386_3.0-AS-P2_GCA -nocheckout
+element * REDHATLINUX-IA64_3.0_GCA -nocheckout
+element * REDHATLINUX-X8664_3.0-P1_GCA -nocheckout
+element * HPUX-INTEL_11.23-P2_GCA -nocheckout
+element * HPUX-PA_11.11-P3_GCA -nocheckout
+element * AIX-POWER_5.1_GCA -nocheckout
+element * SOLARIS-SPARC_2.9-P1_GCA -nocheckout
+element * MPRAS_3.2-P7_GCA -nocheckout
+element * MSDEBUG_200210 -nocheckout
+element * MSVC_7.1 -nocheckout
+element * BYNET_2.3.6.3 -nocheckout
+element * PUT_3.4.2.11 -nocheckout
+
+#element * PUT_3.4.0.8 -nocheckout
+element * SDK_PLATFORM_0212 -nocheckout
+element * DDKWIN_0212 -nocheckout
+element * JCE_1.4.2 -nocheckout
+element * JDK_1.4.1_05 -nocheckout
+element * MSDEV_9903 -nocheckout
+element * CLIV2_4.8.0.4_GCA -nocheckout
+element * CLIV2_4.8_GCA -nocheckout
+element * WINCLI_3.2.9_GCA -nocheckout
+element * WINCLI_3.2_GCA -nocheckout
+element * TDICU_1.1.0.2_GCA -nocheckout
+element * SOFTICE_2.7 -nocheckout
+
+#Delivery
+element * .../tdbms_6.0.2.x/LATEST -nocheckout
+element * TDBMS_6.0.2_GCA -nocheckout
+element * TDBMS_6.0_GCA -nocheckout
+element * .../tdgss_6.0.2.x/LATEST -nocheckout
+element * TDGSS_6.0.2_GCA -nocheckout
+element * TDGSS_6.0_GCA -nocheckout
+
+#element * .../am255098.am255098_pde/LATEST
+
+#mkbranch am255098.am255098_pde -override
+element * .../opnpde_6.0.2.x/LATEST
+element * OPNPDE_6.0.2_GCA 
+element * OPNPDE_6.0_GCA
+element * /main/0

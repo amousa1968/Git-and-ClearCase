@@ -1,0 +1,42 @@
+# opnpde's configspec 
+
+Destination view:
+    C:\cc_views\osutils_import\am255098_cc2git_dynamic_test
+
+Label to apply:
+    OPNPDE_6.0.2.11_GCA
+
+Options:
+    + For each directory, label all the elements that it catalogues
+    + Follow VOB symbolic links
+
+Elements to apply label to:
+    \opnpde
+    \opnpde.1
+    \opnpde.2
+    \opnpde.3
+    \opnpde.4
+    \opnpde.5
+    \opnpde.6
+    \opnpde.7
+    \opnpde.8
+    \opnpde.9
+    \opnpde.a
+    \opnpde.b
+
+
+	
+#User branch am255098.am255098_pde -override
+element * .../opnpde_6.0.2.x/LATEST
+element * OPNPDE_6.0.2_GCA 
+element * OPNPDE_6.0_GCA
+element * /main/0
+
+Labels  
+
+OPNPDE_6.0.2.14_GCA 2006-03-06
+OPNPDE_6.0.2.17_GCA 2006-03-27
+OPNPDE_6.0.2.22_GCA 2006-05-03
+OPNPDE_6.0.2.23_GCA 2006-05-23
+OPNPDE_6.0.2.26_GCA 2006-06-21
+OPNPDE_6.0.2.27_GCA 2006-07-06
