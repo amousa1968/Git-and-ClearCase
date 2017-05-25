@@ -97,7 +97,8 @@ while read -a line; do
 #	echo "element * $label" > $cfgspec_name
  	
 	cd /c/cc_views/osutils_import/$view_name
-	cleartool setcs -force -overwrite -pti /c/Users/am255098/Documents/GitHub/cc2git_dynamic_test/tmp-spec.txt
+#	cleartool setcs -force -overwrite -pti /c/Users/am255098/Documents/GitHub/cc2git_dynamic_test/tmp-spec.txt
+	cleartool setcs /c/Users/am255098/Documents/GitHub/cc2git_dynamic_test/tmp-spec.txt
 	cd $curr_dir
 	
 # catcs: lists a view's config spec (view_name)
@@ -109,11 +110,22 @@ while read -a line; do
 	else
 			### >>> otherwise make one from git_cspecs
 		echo "element * $label" >>        $cfgspec_name
-#		echo "$cspecs" >>       $cfgspec_name
+		echo "element * /main/LATEST" >>        $cfgspec_name 
 
 	fi
 		
 	echo "load $vob_name" >>      $cfgspec_name
+	echo "load $vob1_name" >>      $cfgspec_name
+	echo "load $vob2_name" >>      $cfgspec_name
+	echo "load $vob3_name" >>      $cfgspec_name
+	echo "load $vob4_name" >>      $cfgspec_name
+	echo "load $vob5_name" >>      $cfgspec_name
+	echo "load $vob6_name" >>      $cfgspec_name
+	echo "load $vob7_name" >>      $cfgspec_name
+	echo "load $vob8_name" >>      $cfgspec_name
+	echo "load $vob9_name" >>      $cfgspec_name
+	echo "load $vob10_name" >>      $cfgspec_name
+	echo "load $vob11_name" >>      $cfgspec_name
 
 	echo -e  " \n"
 	echo -e  "-------------------------------\n"
@@ -127,10 +139,10 @@ while read -a line; do
 # Note: You have to execute the command "cleartool setcs -current" to re-load C:\Configspec.csf in case it has been modified.
 	cd /c/cc_views/osutils_import/$view_name
 #	cleartool setcs -force -overwrite -pti /c:/Users/am255098/Documents/GitHub/cc2git_dynamic_test/tmp-spec.txt
-	cleartool setcs -force -overwrite -pti /c:/Users/am255098/Documents/GitHub/cc2git_dynamic_test/git_cspecs/opnpde
-	
+#	cleartool setcs -force -overwrite -pti /c:/Users/am255098/Documents/GitHub/cc2git_dynamic_test/git_cspecs/opnpde
 #	Use the below command after the initial loads 
-#	cleartool setcs /c:/Users/am255098/Documents/GitHub/cc2git_dynamic_test/git_cspecs/opnpde
+	cleartool setcs /c:/Users/am255098/Documents/GitHub/cc2git_dynamic_test/git_cspecs/opnpde
+
 	pwd
 	echo -e  " \n"
 	echo -e  "Current config spec set to...\n"
@@ -140,7 +152,6 @@ while read -a line; do
 cd $curr_dir
 
 cd /c/cc_views/osutils_import/$view_name
-
 
 # execute script
 sh /c/Users/am255098/Documents/GitHub/cc2git_dynamic_test/copyfilestomain.sh
@@ -238,4 +249,5 @@ git push origin $label
 	ls -al
 
 done < $filename
+
 exit 
