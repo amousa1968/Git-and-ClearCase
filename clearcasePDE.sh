@@ -79,7 +79,9 @@ fi
 	echo -e  "View = $view_name\n"
 
 # for each label that is read out from the labels file
-while read -a line; do 
+while read -a line; do
+#while read -a line2; do
+#while read -a line1; do 
 	
 		label=${line[0]}
 		date=${line[1]}
@@ -90,15 +92,19 @@ while read -a line; do
 	echo -e  " \n"
 	echo $label/$date
 	echo -e  " \n"
+	
+#while read -a line2; do 
+	
+#		label=${line[0]}
+#		date=${line[1]}	
 
 # add these lines to the temp config_spec
 # checkedout is required at the first item in a snapshot config spec
-    echo "element * CHECKEDOUT" > $cfgspec_name 
-#	echo "element * $label" > $cfgspec_name
- 	
+    echo "element * CHECKEDOUT" > $cfgspec_name
+
 	cd /c/cc_views/osutils_import/$view_name
-#	cleartool setcs -force -overwrite -pti /c/Users/am255098/Documents/GitHub/cc2git_dynamic_test/tmp-spec.txt
-	cleartool setcs /c/Users/am255098/Documents/GitHub/cc2git_dynamic_test/tmp-spec.txt
+	cleartool setcs -force -overwrite -pti /c/Users/am255098/Documents/GitHub/cc2git_dynamic_test/tmp-spec.txt
+#	cleartool setcs /c/Users/am255098/Documents/GitHub/cc2git_dynamic_test/tmp-spec.txt
 	cd $curr_dir
 	
 # catcs: lists a view's config spec (view_name)
@@ -107,13 +113,18 @@ while read -a line; do
 	if test -r $cspecs/$label; then
 #		### >>> if it is, then use that one
 		cat $cspecs/$label >> $cfgspec_name
+		cat $cspecs >> $cfgspec_name
+	
 	else
 			### >>> otherwise make one from git_cspecs
 		echo "element * $label" >>        $cfgspec_name
-		echo "element * /main/LATEST" >>        $cfgspec_name 
+#		echo "element * /main/LATEST" >>        $cfgspec_name
+		cat $cspecs >>        $cfgspec_name	
 
 	fi
-		
+	
+
+	echo -e  " \n" 	
 	echo "load $vob_name" >>      $cfgspec_name
 	echo "load $vob1_name" >>      $cfgspec_name
 	echo "load $vob2_name" >>      $cfgspec_name
@@ -138,10 +149,10 @@ while read -a line; do
 # set the configspec.  This will update all the files in the current view with the initial label use 
 # Note: You have to execute the command "cleartool setcs -current" to re-load C:\Configspec.csf in case it has been modified.
 	cd /c/cc_views/osutils_import/$view_name
-#	cleartool setcs -force -overwrite -pti /c:/Users/am255098/Documents/GitHub/cc2git_dynamic_test/tmp-spec.txt
+	cleartool setcs -force -overwrite -pti /c:/Users/am255098/Documents/GitHub/cc2git_dynamic_test/tmp-spec.txt
 #	cleartool setcs -force -overwrite -pti /c:/Users/am255098/Documents/GitHub/cc2git_dynamic_test/git_cspecs/opnpde
 #	Use the below command after the initial loads 
-	cleartool setcs /c:/Users/am255098/Documents/GitHub/cc2git_dynamic_test/git_cspecs/opnpde
+#	cleartool setcs /c:/Users/am255098/Documents/GitHub/cc2git_dynamic_test/git_cspecs/opnpde
 
 	pwd
 	echo -e  " \n"
@@ -152,6 +163,7 @@ while read -a line; do
 cd $curr_dir
 
 cd /c/cc_views/osutils_import/$view_name
+#exit 
 
 # execute script
 sh /c/Users/am255098/Documents/GitHub/cc2git_dynamic_test/copyfilestomain.sh
@@ -200,7 +212,7 @@ sh /c/Users/am255098/Documents/GitHub/cc2git_dynamic_test/copyfilestomain.sh
 	ls -la; sleep 10
 
 cd $curr_dir
-cd /c/cc_views/osutils_import/$view_name/opnpde/	
+cd /c/cc_views/osutils_import/$view_name/opnpde
     echo -e  "opnpde"
 # update the git&cc copy of the files to import
 echo -e  "Copy files from CC snap view to local git repo. \n"
@@ -219,6 +231,9 @@ git commit -m "$label $date"
 	echo -e  "Issung git branch and tag master_cc and master_ci\n"
 git branch -f master_cc HEAD
 git tag -f master_ci HEAD
+	
+#git branch -f opnpde_6.0.2.x HEAD	 
+#git tag -f opnpde_6.0.2.x HEAD
 	echo -e  " done.\n"
 	echo -e  "Issuing git tag release\n"
 git tag $label
@@ -250,4 +265,4 @@ git push origin $label
 
 done < $filename
 
-exit 
+#exit 
